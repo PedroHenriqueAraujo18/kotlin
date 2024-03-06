@@ -1,0 +1,28 @@
+fun exibir(lista: List<String>) {
+    println("Lista de alunos adicionados")
+    lista.forEachIndexed { index, aluno ->
+        println("${index}. $aluno")
+    }
+}
+
+fun main() {
+    var listaAlunos = mutableListOf<String>()
+
+    println("Digite quantos alunos deseja adicionar a lista:")
+    val input = readLine()
+    var quantidadeAlunos = input?.toInt()
+
+    if (quantidadeAlunos == 0 || quantidadeAlunos == null) {
+        println("Digite um número válido e maior que zero.")
+    } else {
+        for (i in 1..quantidadeAlunos) {
+            println("Digite o nome do aluno $i:")
+            val aluno = readLine()
+            if (aluno != null) {
+                listaAlunos.add(aluno)
+            }
+        }
+
+        exibir(listaAlunos)
+    }
+}

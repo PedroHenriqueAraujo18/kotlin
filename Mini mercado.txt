@@ -1,0 +1,49 @@
+
+//feita pra armazenamento de dados, é necessária para termos o hashcode, to String e etc.
+data class Dados(val nomeItem: String,val tipoItem: String,val precoItem: Int)
+
+
+//basicamente tem que passa por parametro tudo, isso inclue a lista usada, pra todas as funções que precisam de alterações ou adições
+fun cadastroItems(nomeItem : String,tipoItem: String,precoItem: Int, dados : MutableList<Dados>) {
+
+    //basicamente você precisa usar o nome da classe de dados para poder adicionar os items via parametro
+    val item = Dados(nomeItem,tipoItem,precoItem)
+    dados.add(item)
+}
+
+fun exibirProdutos(dados: MutableList<Dados>){
+    for(i in dados){
+        println(i)
+    }
+}
+
+
+fun main() {
+
+    val mercado = mutableListOf<Dados>()
+
+    println("Digite quantos cadastros deseja fazer:")
+
+    //casting de String para int
+    val qtdCadastro = readlnOrNull()?.toIntOrNull()
+
+    //loop que vai de 1 a quantidade requisitada(os ''..'' representa o tamanho do vetor/dado
+    for(i in 1..qtdCadastro!!){
+        println("Cadastro $i:")
+
+        print("Nome do produto:")
+        val nome = readlnOrNull()
+
+        print("Tipo do produto:")
+        val tipo = readlnOrNull()
+
+        print("Preço do produto:")
+        val preco = readlnOrNull()?.toIntOrNull()?:0
+
+        //Verificação necessária, requisitação do Kotlin para strings
+        if (tipo != null && nome !=null) {
+            cadastroItems(nome,tipo,preco,mercado)
+        }
+    }
+    exibirProdutos(mercado)
+}

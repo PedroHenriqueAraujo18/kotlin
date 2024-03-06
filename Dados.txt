@@ -1,0 +1,7 @@
+package meu.pacote
+
+data class Sucos(val id:Int,val sabor:String){
+override fun toString(): String {
+    return "Sucos(id=$id, sabor='$sabor')"
+    }
+}

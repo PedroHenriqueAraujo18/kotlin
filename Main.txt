@@ -1,0 +1,46 @@
+import meu.pacote.Sucos
+import pacote.eu.Crud
+import kotlin.system.exitProcess
+
+
+
+fun main(){
+     val ins = Crud()
+    while(true) {
+        println(
+            "  1 - Cadastrar \n" +
+                    "  2 - Excluir \n" +
+                    "  3 - Pesquisar \n" +
+                    "  4 - Sair "
+        )
+        print("Digite qual opção deseja:")
+        val op = readlnOrNull()?.toIntOrNull()
+        when (op) {
+            1 -> {
+                println("Digite o ID:")
+                val id = readlnOrNull()?.toInt()
+                println("Digite o sabor do suco:")
+                val sabor = readlnOrNull() ?: return
+                ins.Cadastrar(Sucos(id ?: 0, sabor))
+            }
+
+            2 -> {
+                println("Digite o sabor do suco a ser excluído:")
+                val sabor = readlnOrNull() ?: return
+                ins.Excluir(sabor)
+            }
+
+            3 -> {
+                println("Digite o sabor do suco a ser pesquisado:")
+                val sabor = readlnOrNull() ?: return
+                ins.Pesquisar(sabor)
+            }
+
+            4 -> {
+                println("Saindo...")
+                ins.Sair()
+            }
+            else -> println("Opção inválida.")
+        }
+    }
+}

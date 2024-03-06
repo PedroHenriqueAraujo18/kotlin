@@ -1,0 +1,43 @@
+
+data class Menu( var food : MutableMap<String,Int>)
+
+
+
+fun menu( food: MutableMap<String, Int>,nome :String,preco :Int){
+    val menu = Menu(food)
+    println("Menu")
+    menu.food.forEach {
+        (nome,preco)->
+        println("$nome - R$$preco")
+    }
+}
+
+fun main() {
+
+    val foodMenu :  MutableMap<String,Int> = mutableMapOf()
+
+
+    println("Digite quantos cadastros deseja fazer:")
+
+    //casting de String para int
+    val qtdCadastro = readlnOrNull()?.toIntOrNull()
+
+    //loop que vai de 1 a quantidade requisitada(os ''..'' representa o tamanho do vetor/dado
+    for(i in 1..qtdCadastro!!){
+        println("Cadastro $i:")
+
+        print("Nome do produto:")
+        val nome = readlnOrNull()
+
+        print("Preço do produto:")
+        val preco = readlnOrNull()?.toIntOrNull()?:0
+
+        if(nome !==null){
+            foodMenu[nome]=preco
+            menu(foodMenu,nome,preco)
+        }
+
+    }
+
+    }
+

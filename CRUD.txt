@@ -1,0 +1,33 @@
+package pacote.eu
+
+import kotlin.system.exitProcess
+import meu.pacote.Sucos
+
+class Crud {
+    private val catalogo : MutableMap<String,Sucos> = mutableMapOf()
+    fun Cadastrar(suco: Sucos){
+        catalogo[suco.sabor] = suco
+        println("Suco cadastrado com sucesso: $suco")
+    }
+    fun Excluir(sabor: String) {
+        catalogo.remove(sabor)
+        println("Suco com o sabor '$sabor' excluído com sucesso!")
+    }
+
+    fun Pesquisar(sabor: String) {
+        val suco = catalogo[sabor]
+        if (suco != null) {
+            println("Suco encontrado: $suco")
+        } else {
+            println("Suco com o sabor '$sabor' não encontrado.")
+        }
+    }
+
+    fun Sair(){
+        exitProcess(0)
+
+    }
+
+}
+
+
