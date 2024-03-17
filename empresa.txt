@@ -1,0 +1,52 @@
+data class Veiculo(
+    val fabricante:String,
+    val modelo :String,
+    val anoFabricacao :Int,
+    val anoModelo:Int,
+    val km:Double =0.0
+
+)
+ data class Empresa(
+     val razaoSocial :String,
+     val nomeFantasia :String,
+     val CNPJ :String
+ )
+data class Locacao(
+    val dataRetirada:String,
+    val dataDevolucao:String,
+    val e: Empresa,
+    val v: Veiculo
+){
+    fun imprimir(){
+        println("Retirada: $dataRetirada,Devolvida:$dataDevolucao,empresa:$e,veiculo:$v")
+    }
+}
+
+
+class GerenciadorLocacoes(val a:MutableList<Locacao>){
+    fun imprimir(c:Locacao){
+        println(c.toString())
+    }
+    fun adicionar(b:Locacao){
+        a.add(b)
+    }
+    fun buscarPorCNPJ(cnpj:String):Locacao? {
+        return a.find{it.e.CNPJ==cnpj}
+    }
+}
+
+fun main() {
+    val locs :MutableList<Locacao> = mutableListOf()
+   val v1 = Veiculo("F","m",2024,2024)
+    val v2 = Veiculo("M","N",2024,2024,1000.0)
+    val localiza = Empresa("Localiza","lz","0345043505340")
+    val n1 = Locacao("08/03/2024-10H","09/03/2024-12H",localiza,v1)
+    val n2 = Locacao("09/03/2024-12H","19/03/2024-14H",localiza,v2)
+
+    //7
+    n2.imprimir()
+    n1.imprimir()
+    locs.add(n2)
+    locs.add(n1)
+
+}

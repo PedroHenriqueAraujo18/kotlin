@@ -1,0 +1,80 @@
+data class Estudante(
+         val idAluno:Int,
+         val nomeAluno:String,
+         val idadeAluno:Int,
+         val cpfAluno:Int,
+         val alturaAluno:Float,
+         val pesoAluno:Float,
+         val notaAluno:Float
+         )
+
+
+data class Escola(
+    val idEscola:Int,
+    val nomeEscola:String,
+    val estudante:Estudante,
+    val disciplina: Disciplina
+)
+
+
+
+data class Disciplina(
+    val escolaEngenharia:String,
+    val escolaCalculo:String,
+    val escolaProgramacao:String,
+    val escolaBancoDeDados:String
+)
+class Gerenciador(val e:MutableMap<Int,Estudante> ) {
+    fun adicionarAluno(Aluno: Estudante) {
+        e[Aluno.idAluno]=Aluno
+    }
+    fun imprimir(Aluno: Estudante){
+        println(Aluno.toString())
+    }
+    fun removerAluno(idAluno:Int){
+        e.remove(idAluno)
+    }
+    fun acharAluno(idAluno: Int):Estudante?{
+        return e[idAluno]
+    }
+}
+
+fun main(){
+
+    val e: MutableMap<Int,Estudante> = mutableMapOf()
+    val disciplina = Disciplina(
+        "Software",
+        "Cálculo 1",
+        "C",
+        "SQLserver"
+    )
+    val estudante = Estudante(
+        1,
+        "João",
+        20,
+        123456789,
+        1.75f,
+        70.0f,
+        8.5f
+    )
+    var escola1 = Escola(1000,"puc", estudante,
+        disciplina)
+    val gerenciador = Gerenciador(e)
+
+    gerenciador.adicionarAluno(estudante)
+
+    gerenciador.imprimir(estudante)
+
+    gerenciador.removerAluno(estudante.idAluno)
+
+    val alunoEncontrado = gerenciador.acharAluno(estudante.idAluno)
+    if (alunoEncontrado != null) {
+        gerenciador.imprimir(alunoEncontrado)
+    } else {
+        println("Aluno não encontrado.")
+    }
+
+
+
+
+}
