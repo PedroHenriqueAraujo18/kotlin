@@ -1,0 +1,53 @@
+Estudos de Kotlin(Teórico)
+Em kotlin a fun é usada pra declarar uma função, a main() é onde seu programa começa
+O corpo dela é usado com {}
+Println e print são usado para printa os argumentos na tela( a ln pula linha e print normal requer parâmetros por haver vários tipos de print)
+Val são variáveis read-only, e var são variáveis que mudam conforme o desejo e código do programador.
+Para dar um valor use ‘=’ 
+Strings é recomendo o uso de interpolação pois evita a criação de outras strings dentro da memória, uso o símbolo $ que aponta na onde está a variável.
+
+Cada variável e estrutura de dados em koltin tem seu tipo de dado, eles são importantes porque dizem ao compilador oque você quer que o compilador faça com a variável ou a estrutura de dados. O kotlin tem a type inference, que seria a possibilidade de saber os tipos pela assignação / valor dado pelo programador a variável.
+
+Para diferenciar tipo double e float use F nos tipos float.(Char se declara usando aspas simples)
+Coleções->São estruturas de dados agrupadas, com elas sendo, lists, sets e maps, todas podendo ser mutable ou read Only.
+A Lista(List)
+Para criar listas somentes de leitura  Use ListOf().
+Para criar listas mutáveis, use mutableListOf()
+Quando são criadas listas , kotlin pode inferir o tipo de items guardados, Para declarar exatamente oque deseja use <Tipo de Dado desejado> depois da lista
+Para prever modificações desnecessárias vc pode obter dados de leitura de uma lista mutável incorporando numa List
+Var r : MutableList<Int> = mutableListOf()
+Var n :List<Int> = r
+
+ISSO SE CHAMA CASTING
+
+Para pegar um item da lista, ou você sabe sobre a posição dele no vetor, ou use a fun nomedavariavel.first() ...(primeiro) e nomedavariavel.last().... (ultimo)
+Para pegar a quantidade de items na lista use nomedalista.count()
+O in faz com que você pesquise alguma coisa dentro da lista.
+Para adicionar numa lista use nomedalista.add(varadicionada) E para remover use nomedalista.remove(varremovida)
+
+Sets---> guardam valores únicos diferentes das listas normais, há repetição porem ao printar não mostra aos olhos do usuário.E eles não são ordernados, não da pra acessar particularmente um item a não ser que tenha digitação e vc procure via in iterando sobre um dado em particular
+
+
+Mapsguardam valores como key-value, da pra acessar o valor referenciando a chave, ou seja, pega o id e mostras todos os dados que estão associados a ele. Cada key é única, da pra ter valores duplicados num map(PARA ADICIONAR NUM MAP USE nomedomap.put(chave, valor)
+Val dado = mapOf()
+ Val dado: MutableMap<Chave,valor> = mutableMapOf() 
+Dado.put(100,”catapimbas”)
+Ou dado[100] = “catapimbas”
+Para verificar se a key já existe use nomedomapa.constainsKey()
+Para obter as chaves e o valores separados faça, nomedomapa.keys() e nomedomapa.values()
+Da pra usar in também
+Chaves e valores são examples de propriedades de objeto, Para acessar a propriedade de um objeto, escrevendo a propriedade do nome depois do objeto ser adicionado
+
+
+
+Functions---> são declaradas usando a ‘’fun nomedafunction ()” cada paremetro da função precisa de um tipo e múltiplos parâmetro devem ser separados usando ,
+O corpo da função é com chaves {}
+Existem funções com retorno e sem retorno nenhum
+Elas começam com uma letrapequena assim somadorSupremo.
+Argumentos nomeados.
+Para códigos concisos, não precisa incluir os nomes do parâmetros na chamada de função,Porem isso deixa seu código mais fácil de ler.
+Expressões lambda
+escreve, o parâmetro depois o tipo e depois o restante
+Println({string: String -> string.uppercase()}(“hello))
+Um grande exemplo de uso de expressões lambda e passar a lambda para uma função usando .filter()
+{x->x >0} retorna os valores maiores que zero
