@@ -1,0 +1,13 @@
+class Pessoa(val nome: String, val idade: Int)
+
+fun main() {
+    val listaDePessoas = listOf(
+        Pessoa("Alice", 30),
+        Pessoa("Bob", 25),
+        Pessoa("Carol", 35)
+    )
+    
+    for (pessoa in listaDePessoas) {
+        println("${pessoa.nome} tem ${pessoa.idade} anos")
+    }
+}

@@ -1,0 +1,13 @@
+class Veiculo(val marca: String, val modelo: String)
+
+fun main() {
+    val listaDeVeiculos = listOf(
+        Veiculo("Toyota", "Corolla"),
+        Veiculo("Honda", "Civic"),
+        Veiculo("Ford", "Mustang")
+    )
+    
+    for (veiculo in listaDeVeiculos) {
+        println("${veiculo.marca} ${veiculo.modelo}")
+    }
+}

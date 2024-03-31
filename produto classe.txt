@@ -1,0 +1,13 @@
+class Produto(val nome: String, val preco: Double)
+
+fun main() {
+    val listaDeProdutos = listOf(
+        Produto("Camiseta", 29.99),
+        Produto("Calça", 49.99),
+        Produto("Tênis", 79.99)
+    )
+    
+    for (produto in listaDeProdutos) {
+        println("${produto.nome}: R$ ${produto.preco}")
+    }
+}

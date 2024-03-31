@@ -1,0 +1,13 @@
+class Livro(val titulo: String, val autor: String)
+
+fun main() {
+    val listaDeLivros = listOf(
+        Livro("Dom Quixote", "Miguel de Cervantes"),
+        Livro("Orgulho e Preconceito", "Jane Austen"),
+        Livro("1984", "George Orwell")
+    )
+    
+    for (livro in listaDeLivros) {
+        println("${livro.titulo} - ${livro.autor}")
+    }
+}

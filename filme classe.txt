@@ -1,0 +1,13 @@
+class Filme(val titulo: String, val diretor: String)
+
+fun main() {
+    val listaDeFilmes = listOf(
+        Filme("O Poderoso Chefão", "Francis Ford Coppola"),
+        Filme("A Lista de Schindler", "Steven Spielberg"),
+        Filme("O Senhor dos Anéis", "Peter Jackson")
+    )
+    
+    for (filme in listaDeFilmes) {
+        println("${filme.titulo} - Dirigido por ${filme.diretor}")
+    }
+}
